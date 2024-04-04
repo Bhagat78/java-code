@@ -1,0 +1,24 @@
+import java.util.HashMap;
+
+public class WordCount {
+    public static void main(String[] args) {
+        String text = "This is a sample text with multiple words. Sample text is used to demonstrate the word count program.";
+
+        // Remove any punctuation marks and split the text into words
+        String[] words = text.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
+
+        // Create a HashMap to store word counts
+        HashMap<String, Integer> wordCountMap = new HashMap<>();
+
+        // Count the occurrences of each word
+        for (String word : words) {
+            wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
+        }
+
+        // Display the word counts
+        System.out.println("Word Counts:");
+        for (String word : wordCountMap.keySet()) {
+            System.out.println(word + ": " + wordCountMap.get(word));
+        }
+    }
+}
